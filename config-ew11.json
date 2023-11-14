@@ -1,0 +1,363 @@
+{
+  "controller": {
+    "comms": {
+      "type": "tcp",
+      "portId": 0,
+      "enabled": true,
+      "rs485Port": "/dev/ttyUSB0",
+      "mock": false,
+      "netConnect": true,
+      "netHost": "192.168.0.105",
+      "netPort": 8899,
+      "inactivityRetry": 10,
+      "portSettings": {
+        "baudRate": 9600,
+        "dataBits": 8,
+        "parity": "none",
+        "stopBits": 1,
+        "rtscts": false,
+        "autoOpen": false,
+        "lock": false
+      },
+      "netSettings": {
+        "allowHalfOpen": false,
+        "keepAlive": false,
+        "keepAliveInitialDelay": 5
+      },
+      "screenlogic": {
+        "connectionType": "local",
+        "systemName": "Pentair: 00-00-00",
+        "password": 1234
+      }
+    },
+    "backups": {
+      "automatic": true,
+      "interval": {
+        "days": 5,
+        "hours": 0
+      },
+      "keepCount": 10,
+      "njsPC": true,
+      "servers": []
+    }
+  },
+  "web": {
+    "servers": {
+      "http2": {
+        "enabled": false,
+        "uuid": "3e78f80c-af42-4e48-9e26-0d9b9e7fdd34"
+      },
+      "http": {
+        "enabled": true,
+        "ip": "0.0.0.0",
+        "port": 4200,
+        "httpsRedirect": false,
+        "authentication": "none",
+        "authFile": "/users.htpasswd",
+        "uuid": "6b1738a3-21ec-4d20-b04c-ee17f751921b"
+      },
+      "https": {
+        "enabled": false,
+        "ip": "0.0.0.0",
+        "port": 4201,
+        "authentication": "none",
+        "authFile": "/users.htpasswd",
+        "sslKeyFile": "",
+        "sslCertFile": "",
+        "uuid": "19b1e84c-84f2-42ad-a058-28bc4738cc2c"
+      },
+      "mdns": {
+        "enabled": false,
+        "uuid": "ed2f8318-21bc-4890-b835-2dd02a67f0b7"
+      },
+      "ssdp": {
+        "enabled": true,
+        "uuid": "bde7b935-6899-4394-8f57-7a66e7085f61"
+      }
+    },
+    "services": {},
+    "interfaces": {
+      "smartThings": {
+        "name": "SmartThings",
+        "type": "rest",
+        "enabled": false,
+        "fileName": "smartThings-Hubitat.json",
+        "globals": {},
+        "options": {
+          "host": "0.0.0.0",
+          "port": 39500
+        },
+        "uuid": "2939e0f7-ffc3-464e-ab8a-bf24a7cb5440"
+      },
+      "hubitat": {
+        "name": "Hubitat",
+        "type": "rest",
+        "enabled": false,
+        "fileName": "smartThings-Hubitat.json",
+        "globals": {},
+        "options": {
+          "host": "0.0.0.0",
+          "port": 39501
+        },
+        "uuid": "d5064167-67b6-4532-b507-3be031205cd0"
+      },
+      "vera": {
+        "name": "Vera",
+        "type": "rest",
+        "enabled": false,
+        "fileName": "vera.json",
+        "vars": {
+          "deviceId": 0
+        },
+        "options": {
+          "host": "",
+          "port": 3480
+        },
+        "uuid": "25bd068d-562e-440e-ac75-8e632a1fc150"
+      },
+      "valveRelay": {
+        "type": "rest",
+        "name": "Valve Relays",
+        "enabled": false,
+        "fileName": "valveRelays.json",
+        "vars": {
+          "valveIds": []
+        },
+        "options": {
+          "host": "0.0.0.0",
+          "port": 8081
+        },
+        "uuid": "ba08f54e-6dcd-4d89-91ee-a7d59554db10"
+      },
+      "influxDB": {
+        "name": "InfluxDB",
+        "type": "influx",
+        "enabled": false,
+        "fileName": "influxDB.json",
+        "options": {
+          "version": 1,
+          "protocol": "http",
+          "host": "192.168.0.1",
+          "port": 9999,
+          "username": "",
+          "password": "",
+          "database": "pool",
+          "retentionPolicy": "autogen"
+        },
+        "uuid": "88cf337f-8f26-4fd9-9df3-f30874891bb9"
+      },
+      "influxDBv2": {
+        "name": "InfluxDBv2",
+        "type": "influx",
+        "enabled": false,
+        "fileName": "influxDB.json",
+        "options": {
+          "version": 2,
+          "protocol": "http",
+          "host": "192.168.0.1",
+          "port": 9999,
+          "token": "...LuyM84JJx93Qvc7tfaXPbI_mFFjRBjaA==",
+          "org": "example-org",
+          "bucket": "57ec4eed2d90a50b"
+        },
+        "uuid": "c1046ea0-e68e-42fd-a54f-a56adceb9667"
+      },
+      "mqtt": {
+        "name": "MQTT",
+        "type": "mqtt",
+        "enabled": false,
+        "fileName": "mqtt.json",
+        "globals": {},
+        "options": {
+          "protocol": "mqtt://",
+          "host": "192.168.0.1",
+          "port": 1883,
+          "username": "",
+          "password": "",
+          "selfSignedCertificate": false,
+          "rootTopic": "@bind=(state.equipment.model).replace(' ','-').replace('/','').toLowerCase();",
+          "retain": true,
+          "qos": 0,
+          "changesOnly": true
+        },
+        "uuid": "57a0215c-65a3-41d3-8344-952badcb3044"
+      },
+      "aqualinkD": {
+        "name": "AquaLinkD",
+        "type": "mqtt",
+        "enabled": false,
+        "fileName": "aqualinkD.json",
+        "globals": {},
+        "options": {
+          "protocol": "mqtt://",
+          "host": "192.168.0.1",
+          "port": 1883,
+          "username": "",
+          "password": "",
+          "rootTopic": "aqualinkd",
+          "retain": true,
+          "qos": 0,
+          "changesOnly": true
+        },
+        "vars": {
+          "tempPrecision": 2,
+          "tempUnits": "@bind=sys.board.valueMaps.tempUnits.getName(state.temps.units);"
+        },
+        "uuid": "58f6cb82-9a6f-476a-8b4d-4c2264e60661"
+      },
+      "mqttAlt": {
+        "name": "MQTTAlt",
+        "type": "mqtt",
+        "enabled": false,
+        "fileName": "mqttAlt.json",
+        "globals": {},
+        "options": {
+          "protocol": "mqtt://",
+          "host": "192.168.0.1",
+          "port": 1883,
+          "username": "",
+          "password": "",
+          "rootTopic": "@bind=(state.equipment.model).replace(' ','-').replace('/','').toLowerCase();Alt",
+          "retain": true,
+          "qos": 0,
+          "changesOnly": true
+        },
+        "uuid": "00275a72-e3e9-4e8b-9178-d4ad25294cc1"
+      },
+      "homeAssistant": {
+        "name": "Home Assistant",
+        "type": "mqtt",
+        "enabled": false,
+        "fileName": "homeassistant.json",
+        "globals": {},
+        "options": {
+          "protocol": "mqtt://",
+          "host": "192.168.0.1",
+          "port": 1883,
+          "username": "",
+          "password": "",
+          "selfSignedCertificate": false,
+          "retain": true,
+          "qos": 0,
+          "changesOnly": true
+        },
+        "vars": {
+          "_note": "hassTopic is the topic that HASS reads for configuration and should not be changed.  mqttTopic should match the topic in the MQTT binding (do not use MQTTAlt for HASS).",
+          "hassTopic": "homeassistant",
+          "mqttTopic": "@bind=(state.equipment.model).replace(' ','-').replace('/','').toLowerCase();"
+        },
+        "uuid": "7a596210-172e-453c-a9a6-4c872e53c5e7"
+      },
+      "rem": {
+        "name": "Relay Equipment Manager",
+        "type": "rem",
+        "enabled": false,
+        "options": {
+          "protocol": "http://",
+          "host": "raspberrypi",
+          "port": 8080,
+          "headers": {
+            "content-type": "application/json"
+          }
+        },
+        "socket": {
+          "transports": [
+            "websocket"
+          ],
+          "upgrade": false,
+          "reconnectionDelay": 2000,
+          "reconnection": true,
+          "reconnectionDelayMax": 20000
+        },
+        "uuid": "0bbaf6f1-c75f-492e-a090-8a51a37e1209"
+      }
+    }
+  },
+  "log": {
+    "screenlogic": {
+      "enabled": false,
+      "logToConsole": false,
+      "logToFile": false
+    },
+    "packet": {
+      "logToConsole": false,
+      "logToFile": false,
+      "enabled": false,
+      "filename": "packetLog",
+      "invalid": true,
+      "broadcast": {
+        "enabled": true,
+        "includeActions": [],
+        "includeSource": [],
+        "includeDest": [],
+        "excludeActions": [],
+        "excludeSource": [],
+        "excludeDest": []
+      },
+      "pump": {
+        "enabled": true,
+        "includeActions": [],
+        "includeSource": [],
+        "includeDest": [],
+        "excludeActions": [],
+        "excludeSource": [],
+        "excludeDest": []
+      },
+      "chlorinator": {
+        "enabled": true,
+        "includeSource": [],
+        "includeDest": [],
+        "excludeSource": [],
+        "excludeDest": []
+      },
+      "intellichem": {
+        "enabled": true,
+        "includeActions": [],
+        "excludeActions": [],
+        "includeSource": [],
+        "includeDest": [],
+        "excludeSource": [],
+        "excludeDest": []
+      },
+      "intellivalve": {
+        "enabled": true,
+        "includeActions": [],
+        "excludeActions": [],
+        "includeSource": [],
+        "includeDest": [],
+        "excludeSource": [],
+        "excludeDest": []
+      },
+      "heater": {
+        "enabled": true,
+        "includeActions": [],
+        "excludeActions": [],
+        "includeSource": [],
+        "includeDest": [],
+        "excludeSource": [],
+        "excludeDest": []
+      },
+      "unidentified": {
+        "enabled": true,
+        "includeSource": [],
+        "includeDest": [],
+        "excludeSource": [],
+        "excludeDest": []
+      },
+      "unknown": {
+        "enabled": true,
+        "includeSource": [],
+        "includeDest": [],
+        "excludeSource": [],
+        "excludeDest": []
+      }
+    },
+    "app": {
+      "enabled": true,
+      "level": "info",
+      "captureForReplay": false,
+      "logToFile": false
+    }
+  },
+  "appVersion": "8.0.1"
+}
